@@ -1,0 +1,12 @@
+{
+  "name": "e-commerce-mern",
+  "version": "1.0.0",
+  "description": "E-commerce website rest api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Nitish sharma",
+  "license": "MIT"
+}
