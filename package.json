@@ -4,7 +4,7 @@
   "description": "E-commerce website rest api",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "keywords": [],
   "author": "Nitish sharma",
