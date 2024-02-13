@@ -1,5 +1,10 @@
-const express = require('express')
-const colors = require('colors')
+import express from 'express'
+import colors from 'colors'
+import dotenv from 'dotenv'
+
+//configure env
+dotenv.config();
+
 //rest object
 const app = express()
 
@@ -11,9 +16,9 @@ app.get('/', (req, res) => {
 })
 
 //PORT
-const PORT = 8080
+const PORT = process.env.PORT || 8080;
 
 //run listen
 app.listen(PORT, () => {
-    console.log(`Server is runnin on ${PORT}`.bgCyan.white);
+    console.log(`Server is running on ${process.env.DEV_MODE} mode on port ${PORT}`.bgCyan.white);
 })
