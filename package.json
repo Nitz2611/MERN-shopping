@@ -2,11 +2,20 @@
   "name": "e-commerce-mern",
   "version": "1.0.0",
   "description": "E-commerce website rest api",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "keywords": [],
   "author": "Nitish sharma",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^16.4.3",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.2",
+    "morgan": "^1.10.0"
+  }
 }
