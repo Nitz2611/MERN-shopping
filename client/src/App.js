@@ -9,13 +9,13 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Register from './pages/Auth/Register'
 import './styles/AuthStyle.css'
-// import Login from './pages/Auth/Login'
+import Login from './pages/Auth/Login'
 
 function App() {
   return (
     <>
       <Routes>
-        {/* <Route path='/login' element={<Login />}></Route> */}
+        <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/about' element={<About />}></Route>

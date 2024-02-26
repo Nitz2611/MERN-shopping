@@ -1,6 +1,8 @@
 import { React, useState } from 'react'
 import Layout from '../../components/Layout/Layout'
 import { toast } from 'react-toastify'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 
 const Register = () => {
@@ -10,12 +12,23 @@ const Register = () => {
     const [password, setPassword] = useState('')
     const [phone, setPhone] = useState('')
     const [address, setAddress] = useState('')
+    const navigate = useNavigate()
 
     //form function
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log(name, email, password, phone, address);
-        toast.success('Register Successfully')
+        try {
+            const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/register`, { name, email, password, phone, address })
+            if (res.data.success) {
+                toast.success(res.data.message)
+                navigate('/login');
+            } else {
+                toast.error(res.data.message)
+            }
+        } catch (error) {
+            console.log(error)
+            toast.error('Something went wrong')
+        }
     }
 
     return (
@@ -42,7 +55,7 @@ const Register = () => {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 className="form-control"
-                                id="exampleInputEmail1"
+                                id="exampleInputEmail2"
                                 placeholder="Enter Your Email "
                                 required
                             />
@@ -53,7 +66,7 @@ const Register = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="form-control"
-                                id="exampleInputPassword1"
+                                id="exampleInputPassword3"
                                 placeholder="Enter Your Password"
                                 required
                             />
@@ -64,7 +77,7 @@ const Register = () => {
                                 value={phone}
                                 onChange={(e) => setPhone(e.target.value)}
                                 className="form-control"
-                                id="exampleInputEmail1"
+                                id="exampleInputEmail4"
                                 placeholder="Enter Your Phone"
                                 required
                             />
@@ -75,7 +88,7 @@ const Register = () => {
                                 value={address}
                                 onChange={(e) => setAddress(e.target.value)}
                                 className="form-control"
-                                id="exampleInputEmail1"
+                                id="exampleInputEmail5"
                                 placeholder="Enter Your Address"
                                 required
                             />
