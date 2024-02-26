@@ -1,6 +1,12 @@
 import React from 'react'
 
+
 const Login = () => {
+
+    const handleSubmit = () => {
+
+    }
+
     return (
         <div>
             <Layout title="Register - Ecommer App">

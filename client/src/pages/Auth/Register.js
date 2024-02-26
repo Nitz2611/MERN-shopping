@@ -1,6 +1,23 @@
-import React from 'react'
+import { React, useState } from 'react'
+import Layout from '../../components/Layout/Layout'
+import { toast } from 'react-toastify'
+
 
 const Register = () => {
+
+    const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+    const [phone, setPhone] = useState('')
+    const [address, setAddress] = useState('')
+
+    //form function
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        console.log(name, email, password, phone, address);
+        toast.success('Register Successfully')
+    }
+
     return (
         <div>
             <Layout title="Register - Ecommer App">
