@@ -21,7 +21,6 @@ function App() {
         <Route path='/register' element={<Register />}></Route>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/dashboard' element={<PrivateRoute />}>
-
           <Route path='' element={<Dashboard />}></Route>
         </Route>
         <Route path='/about' element={<About />}></Route>

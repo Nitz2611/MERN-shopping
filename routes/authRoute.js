@@ -16,7 +16,7 @@ router.post('/login', loginController)
 router.get('/test', requiresSignIn, isAdmin, testController)
 
 //protected route auth
-router.get('user-auth', requiresSignIn, (req, res) => {
+router.get('/user-auth', requiresSignIn, (req, res) => {
     res.status(200).send({ ok: true });
 })
 
