@@ -109,7 +109,25 @@ export const loginController = async (req, res) => {
     }
 };
 
+export const forgotPasswordController = async (req, res) => {
+    try {
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({
+            success: false,
+            message: "Something went wrong",
+            error
+        })
+    }
+}
+
 //test controller
 export const testController = (req, res) => {
-    res.send('protected Routes')
+    try {
+        res.send('Protected Routes');
+    } catch (error) {
+        console.log(error)
+        res.send({ error })
+    }
 }
