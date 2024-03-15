@@ -116,7 +116,7 @@ export const forgotPasswordController = async (req, res) => {
         console.log(error)
         res.status(500).send({
             success: false,
-            message: "Something went wrong ",
+            message: "Something went wrong",
             error
         })
     }
