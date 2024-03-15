@@ -12,6 +12,7 @@ import './styles/AuthStyle.css'
 import Login from './pages/Auth/Login'
 import Dashboard from './pages/user/Dashboard'
 import PrivateRoute from './components/Routes/Private'
+import ForgotPasssword from './pages/Auth/ForgotPassword'
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Routes>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
+        <Route path='/forgot-password' element={<ForgotPasssword />}></Route>
         <Route path='/' element={<HomePage />}></Route>
         <Route path='/dashboard' element={<PrivateRoute />}>
           <Route path='' element={<Dashboard />}></Route>

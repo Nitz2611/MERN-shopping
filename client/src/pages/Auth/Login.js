@@ -39,7 +39,7 @@ const Login = () => {
 
     return (
         <div>
-            <Layout title="Register - Ecommerce App">
+            <Layout title="Login - Ecommerce App">
                 <div className="form-container ">
                     <form onSubmit={handleSubmit}>
                         <h4 className="title">LOGIN FORM</h4>
@@ -70,6 +70,9 @@ const Login = () => {
                         <button type="submit" className="btn btn-primary">
                             LOGIN
                         </button>
+                        <div className='mt-3'><button type="submit" className="btn btn-primary" onClick={() => { navigate('/forgot-password') }}>
+                            Forgot Password
+                        </button></div>
                     </form>
                 </div>
             </Layout>
