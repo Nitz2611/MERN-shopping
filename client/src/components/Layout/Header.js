@@ -6,6 +6,7 @@ import { toast } from 'react-toastify'
 
 const Header = () => {
     const [auth, setAuth] = useAuth()
+    //handling the logout functionality
     const handleLogout = () => {
         setAuth({
             ...auth, user: null, token: ''
@@ -44,6 +45,7 @@ const Header = () => {
                                 </NavLink>
                             </li>
                             {
+                                // if the user is login then show name and logout else show login and register option   
                                 !auth.user ? (<>
                                     <li className="nav-item">
                                         <NavLink to="/register" className="nav-link">
