@@ -13,6 +13,8 @@ import Login from './pages/Auth/Login'
 import Dashboard from './pages/user/Dashboard'
 import PrivateRoute from './components/Routes/Private'
 import ForgotPasssword from './pages/Auth/ForgotPassword'
+import AdminRoute from './components/Routes/AdminRoute'
+import AdminDashboard from './pages/Admin/AdminDashboard'
 
 function App() {
   return (
@@ -22,8 +24,13 @@ function App() {
         <Route path='/register' element={<Register />}></Route>
         <Route path='/forgot-password' element={<ForgotPasssword />}></Route>
         <Route path='/' element={<HomePage />}></Route>
+        {/* private dashboard route for user */}
         <Route path='/dashboard' element={<PrivateRoute />}>
-          <Route path='' element={<Dashboard />}></Route>
+          <Route path='user' element={<Dashboard />}></Route>
+        </Route>
+        {/* Private dashboard route for admin */}
+        <Route path='/dashboard' element={<AdminRoute />}>
+          <Route path='admin' element={<AdminDashboard />}></Route>
         </Route>
         <Route path='/about' element={<About />}></Route>
         <Route path='/contact' element={<Contact />}></Route>
