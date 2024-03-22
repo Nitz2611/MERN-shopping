@@ -8,6 +8,7 @@ import { AuthProvider } from './context/auth';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
+import 'antd/dist/reset.css'
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
