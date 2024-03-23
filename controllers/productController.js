@@ -236,3 +236,8 @@ export const productListController = async (req, res) => {
         });
     }
 };
+
+//search
+export const searchProductController = async (req, res) => {
+
+}
