@@ -18,6 +18,8 @@ const ProductDetails = () => {
             const { data } = await axios.get(
                 `${process.env.REACT_APP_API}/api/v1/product/get-product/${params.slug}`
             );
+            // console.log(data)
+            // console.log(params.slug)
             setProduct(data?.product);
             getSimilarProduct(data?.product._id, data?.product.category._id);
         } catch (error) {

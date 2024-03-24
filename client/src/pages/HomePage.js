@@ -151,7 +151,7 @@ const HomePage = () => {
                                         {p.description.substring(0, 30)}...
                                     </p>
                                     <p className="card-text"> $ {p.price}</p>
-                                    <button className="btn btn-primary ms-1" onClick={() => navigate('/product/${p.slug')}>More Details</button>
+                                    <button className="btn btn-primary ms-1" onClick={() => navigate(`/product/${p.slug}`)}>More Details</button>
                                     <button className="btn btn-secondary ms-1">ADD TO CART</button>
                                 </div>
                             </div>
