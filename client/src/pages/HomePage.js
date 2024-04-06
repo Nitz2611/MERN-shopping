@@ -166,7 +166,7 @@ const HomePage = () => {
                                     setPage(page + 1);
                                 }}
                             >
-                                {loading ? "Loading ..." : "Loadmore"}
+                                {loading ? "Loading..." : "Loadmore"}
                             </button>
                         )}
                     </div>
