@@ -26,7 +26,8 @@ export const Prices = [
     },
     {
         _id: 5,
-        name: "$100 or more",
-        array: [100, 9999],
+        name: "$100 to 999",
+        array: [100, 999],
     },
+
 ];
