@@ -13,7 +13,7 @@ const CartPage = () => {
         try {
             let total = 0;
             cart?.map((item) => {
-                total = total + item.price;
+                total += parseFloat(item.price);
             });
             return total.toLocaleString("en-US", {
                 style: "currency",
