@@ -26,6 +26,7 @@ import Search from './pages/Search'
 import ProductDetails from './pages/ProductDetails'
 import Categories from './pages/Catagories'
 import CategoryProduct from './pages/CategoryProduct'
+import CartPage from './pages/CartPage'
 
 function App() {
   return (
@@ -41,8 +42,13 @@ function App() {
 
         {/* Product routes */}
         <Route path='/product/:slug' element={<ProductDetails />}></Route>
+
+        {/* Category routes */}
         <Route path='/categories' element={<Categories />}></Route>
         <Route path='/category/:slug' element={<CategoryProduct />}></Route>
+
+        {/* Cart Route */}
+        <Route path='/cart' element={<CartPage />}></Route>
 
         {/* private dashboard route for user */}
         <Route path='/dashboard' element={<PrivateRoute />}>

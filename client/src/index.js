@@ -10,6 +10,7 @@ import 'jquery/dist/jquery.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
 import 'antd/dist/reset.css'
 import { SearchProvider } from './context/search';
+import { CartProvider } from './context/cart';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -17,11 +18,13 @@ root.render(
 
   <AuthProvider>
     <SearchProvider>
-      <Router>
+      <CartProvider>
+        <Router>
 
-        <App />
+          <App />
 
-      </Router>
+        </Router>
+      </CartProvider>
     </SearchProvider>
   </AuthProvider>
 );
