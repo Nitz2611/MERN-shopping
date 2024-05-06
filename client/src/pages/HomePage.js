@@ -82,6 +82,7 @@ const HomePage = () => {
     };
     useEffect(() => {
         if (!checked.length || !radio.length) getAllProducts();
+        //eslint
     }, [checked.length, radio.length]);
 
     useEffect(() => {
