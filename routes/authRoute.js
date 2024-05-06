@@ -1,5 +1,5 @@
 import express from "express";
-import { registerController, loginController, testController, forgotPasswordController } from '../controllers/authController.js'
+import { registerController, loginController, testController, forgotPasswordController, updateProfileController } from '../controllers/authController.js'
 import { isAdmin, requiresSignIn } from "../middlewares/authMiddleware.js";
 
 //router object
@@ -27,5 +27,7 @@ router.get('/admin-auth', requiresSignIn, isAdmin, (req, res) => {
     res.status(200).send({ ok: true });
 })
 
+//update profile
+router.put("/profile", requiresSignIn, updateProfileController);
 
 export default router
