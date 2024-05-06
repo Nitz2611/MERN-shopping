@@ -73,7 +73,7 @@ function App() {
         <Route path='/policy' element={<Policy />}></Route>
         <Route path='*' element={<PageNotFound />}></Route>
       </Routes>
-      <ToastContainer />
+      <ToastContainer autoClose={500} />
     </>
   );
 }
