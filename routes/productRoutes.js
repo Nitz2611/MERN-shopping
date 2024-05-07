@@ -1,6 +1,8 @@
 import express from 'express'
 import { isAdmin, requiresSignIn } from '../middlewares/authMiddleware.js'
 import {
+    brainTreePaymentController,
+    braintreeTokenController,
     createProductController,
     deleteProductController,
     getProductController,
@@ -63,4 +65,12 @@ router.get("/related-product/:pid/:cid", relatedProductController);
 
 //category wise product route
 router.get('/product-category/:slug', productCategoryController)
+
+//payments route
+//token
+router.get('/braintree/token', braintreeTokenController)
+
+//payments
+router.post('/braintree/payment', requiresSignIn, brainTreePaymentController)
 export default router
+
