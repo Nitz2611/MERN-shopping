@@ -1,5 +1,5 @@
 import express from "express";
-import { registerController, loginController, testController, forgotPasswordController, updateProfileController, orderStatusController, getAllOrdersController } from '../controllers/authController.js'
+import { registerController, loginController, forgotPasswordController, updateProfileController, orderStatusController, getAllOrdersController, getOrdersController } from '../controllers/authController.js'
 import { isAdmin, requiresSignIn } from "../middlewares/authMiddleware.js";
 
 //router object
@@ -16,7 +16,7 @@ router.post('/login', loginController)
 router.post('/forgot-password', forgotPasswordController)
 
 //dummy test routes
-router.get('/test', requiresSignIn, isAdmin, testController)
+// router.get('/test', requiresSignIn, isAdmin, testController)
 
 //protected route auth user
 router.get('/user-auth', requiresSignIn, (req, res) => {
@@ -30,6 +30,9 @@ router.get('/admin-auth', requiresSignIn, isAdmin, (req, res) => {
 
 //update profile
 router.put("/profile", requiresSignIn, updateProfileController);
+
+//orders
+router.get("/orders", requiresSignIn, getOrdersController);
 
 //all orders
 router.get("/all-orders", requiresSignIn, isAdmin, getAllOrdersController);
