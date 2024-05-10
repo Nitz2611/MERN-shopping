@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Layout from "./../components/Layout/Layout";
 import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
+import "../styles/ProductDetailsStyles.css";
 const ProductDetails = () => {
     const params = useParams();
     const navigate = useNavigate();
@@ -39,7 +40,7 @@ const ProductDetails = () => {
     };
     return (
         <Layout>
-            <div className="row container mt-2">
+            <div className="row container product-details">
                 <div className="col-md-6">
                     <img
                         src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
