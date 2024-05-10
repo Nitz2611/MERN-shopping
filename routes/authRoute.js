@@ -1,5 +1,5 @@
 import express from "express";
-import { registerController, loginController, testController, forgotPasswordController, updateProfileController } from '../controllers/authController.js'
+import { registerController, loginController, testController, forgotPasswordController, updateProfileController, orderStatusController, getAllOrdersController } from '../controllers/authController.js'
 import { isAdmin, requiresSignIn } from "../middlewares/authMiddleware.js";
 
 //router object
@@ -22,6 +22,7 @@ router.get('/test', requiresSignIn, isAdmin, testController)
 router.get('/user-auth', requiresSignIn, (req, res) => {
     res.status(200).send({ ok: true });
 })
+
 //protected route auth admin
 router.get('/admin-auth', requiresSignIn, isAdmin, (req, res) => {
     res.status(200).send({ ok: true });
@@ -29,5 +30,16 @@ router.get('/admin-auth', requiresSignIn, isAdmin, (req, res) => {
 
 //update profile
 router.put("/profile", requiresSignIn, updateProfileController);
+
+//all orders
+router.get("/all-orders", requiresSignIn, isAdmin, getAllOrdersController);
+
+// order status update
+router.put(
+    "/order-status/:orderId",
+    requiresSignIn,
+    isAdmin,
+    orderStatusController
+);
 
 export default router
