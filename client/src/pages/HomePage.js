@@ -7,6 +7,7 @@ import { Prices } from "../components/Prices";
 import { useCart } from "../context/cart";
 import { toast } from "react-toastify";
 import "../styles/Homepage.css";
+import { AiOutlineReload } from "react-icons/ai";
 const HomePage = () => {
     const [cart, setCart] = useCart()
     const [products, setProducts] = useState([]);
@@ -106,8 +107,16 @@ const HomePage = () => {
     };
     return (
         <Layout title={"ALL Products - Best offers "}>
-            <div className="container-fluid row mt-3">
-                <div className="col-md-2">
+            {/* banner image */}
+            <img
+                src="/images/banner.png"
+                className="banner-img"
+                alt="bannerimage"
+                width={"100%"}
+            />
+            {/* banner image */}
+            <div className="container-fluid row mt-3 home-page">
+                <div className="col-md-2 filters">
                     <h4 className="text-center">Filter By Category</h4>
                     <div className="d-flex flex-column">
                         {categories?.map((c) => (
@@ -151,17 +160,26 @@ const HomePage = () => {
                                     alt={p.name}
                                 />
                                 <div className="card-body">
-                                    <h5 className="card-title">{p.name}</h5>
+                                    <div className="card-name-price">
+                                        <h5 className="card-title">{p.name}</h5>
+                                        <h5 className="card-title card-price">
+                                            {"$" + p.price.toLocaleString("en-US", {
+                                                style: "currency",
+                                                currency: "USD",
+                                            })}
+                                        </h5>
+                                    </div>
                                     <p className="card-text">
                                         {p.description.substring(0, 30)}...
                                     </p>
-                                    <p className="card-text"> $ {p.price}</p>
-                                    <button className="btn btn-primary ms-1" onClick={() => navigate(`/product/${p.slug}`)}>More Details</button>
-                                    <button className="btn btn-secondary ms-1" onClick={() => {
-                                        setCart([...cart, p])
-                                        localStorage.setItem("cart", JSON.stringify([...cart, p]))
-                                        toast.success('Item Added to cart')
-                                    }}>ADD TO CART</button>
+                                    <div className="card-name-price">
+                                        <button className="btn btn-primary ms-1" onClick={() => navigate(`/product/${p.slug}`)}>More Details</button>
+                                        <button className="btn btn-secondary ms-1" onClick={() => {
+                                            setCart([...cart, p])
+                                            localStorage.setItem("cart", JSON.stringify([...cart, p]))
+                                            toast.success('Item Added to cart')
+                                        }}>ADD TO CART</button>
+                                    </div>
                                 </div>
                             </div>
                         ))}
@@ -175,7 +193,14 @@ const HomePage = () => {
                                     setPage(page + 1);
                                 }}
                             >
-                                {loading ? "Loading..." : "Loadmore"}
+                                {loading ? (
+                                    "Loading ..."
+                                ) : (
+                                    <>
+                                        {" "}
+                                        Loadmore <AiOutlineReload />
+                                    </>
+                                )}
                             </button>
                         )}
                     </div>

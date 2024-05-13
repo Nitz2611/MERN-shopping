@@ -77,16 +77,26 @@ const ProductDetails = () => {
                                 alt={p.name}
                             />
                             <div className="card-body">
-                                <h5 className="card-title">{p.name}</h5>
-                                <p className="card-text">{p.description.substring(0, 30)}...</p>
-                                <p className="card-text"> $ {p.price}</p>
-                                <button
-                                    className="btn btn-primary ms-1"
-                                    onClick={() => navigate(`/product/${p.slug}`)}
-                                >
-                                    More Details
-                                </button>
-                                <button class="btn btn-secondary ms-1">ADD TO CART</button>
+                                <div className="card-name-price">
+                                    <h5 className="card-title">{p.name}</h5>
+                                    <h5 className="card-title card-price">
+                                        {"$" + p.price.toLocaleString("en-US", {
+                                            style: "currency",
+                                            currency: "USD",
+                                        })}
+
+                                    </h5>
+                                </div>
+                                <p className="card-text">{p.description.substring(0, 60)}...</p>
+                                <div className="card-name-price">
+                                    <button
+                                        className="btn btn-primary ms-1"
+                                        onClick={() => navigate(`/product/${p.slug}`)}
+                                    >
+                                        More Details
+                                    </button>
+                                    <button class="btn btn-secondary ms-1">ADD TO CART</button>
+                                </div>
                             </div>
                         </div>
                     ))}
